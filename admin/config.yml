@@ -1,16 +1,8 @@
-# ─────────────────────────────────────────────────────────────
-#  DJ Seth — CMS configuratie
-#  Inloggen met e-mail loopt via DecapBridge (gratis).
-#  Vul hieronder de 2 regels in die je van DecapBridge krijgt:
-#    - repo            (jouw-github/djseth-site)
-#    - identity_url    (https://auth.decapbridge.com/sites/<jouw-site-id>)
-# ─────────────────────────────────────────────────────────────
+# DJ Seth — CMS configuratie (Netlify Identity + Git Gateway)
 backend:
   name: git-gateway
-  repo: JOUW-GITHUB-NAAM/djseth-site        # << invullen
+  repo: roelhuis-collab/djseth-site
   branch: main
-  identity_url: https://auth.decapbridge.com/sites/JOUW-SITE-ID   # << invullen (van DecapBridge)
-  gateway_url: https://gateway.decapbridge.com
 
 # Waar geüploade foto's terechtkomen
 media_folder: "content/uploads"
