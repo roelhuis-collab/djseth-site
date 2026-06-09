@@ -1,0 +1,40 @@
+{
+  "djName": "DJ Seth",
+  "heroLine1": "JOUW FEEST,",
+  "heroLine2": "MIJN BEATS",
+  "heroSub": "Jonge, enthousiaste feest-DJ. Ik draai op verjaardagen, school- en tuinfeesten en kleine partijen — met eigen draaitafel, geluid, licht en effecten.",
+  "region": "Regio Sittard & Zuid-Limburg",
+  "aboutTitle": "15 jaar, en helemaal weg van muziek",
+  "about1": "Ik ben DJ Seth, een DJ-in-opleiding uit de buurt van Sittard, en ik volg op dit moment een echte DJ-cursus. Draaien is mijn grote hobby: thuis oefen ik elke week en ik vind het top om mensen aan het dansen te krijgen.",
+  "about2": "Voor verjaardagen, school- of tuinfeesten in de regio kom ik graag draaien. Geen wereldster-tarieven — gewoon een gezellige avond met goede muziek en sfeer, voor een eerlijke prijs.",
+  "whatsapp": "31600000000",
+  "email": "info@djseth.nl",
+  "prices": [
+    {
+      "name": "Klein & gezellig",
+      "amount": "€75",
+      "unit": "/ 2 uur",
+      "featured": false,
+      "features": "Tot ± 25 personen\nGeluid + basislicht\nJullie verzoeknummers\nIn de buurt van Sittard"
+    },
+    {
+      "name": "Feestavond",
+      "amount": "€125",
+      "unit": "/ 4 uur",
+      "featured": true,
+      "features": "Tot ± 60 personen\nGeluid + volledige lichtshow\nMix op maat van jullie groep\nOp- en afbouw inbegrepen"
+    },
+    {
+      "name": "Op maat",
+      "amount": "In overleg",
+      "unit": "",
+      "featured": false,
+      "features": "Grotere of langere feesten\nExtra effecten\nVerder weg dan de regio\nVraag naar de mogelijkheden"
+    }
+  ],
+  "gallery": [
+    { "type": "foto", "image": "", "videoUrl": "", "caption": "Foto van je set-up" },
+    { "type": "foto", "image": "", "videoUrl": "", "caption": "Volle dansvloer" },
+    { "type": "foto", "image": "", "videoUrl": "", "caption": "Jij achter de draaitafel" }
+  ]
+}

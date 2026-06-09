@@ -1,0 +1,64 @@
+# ─────────────────────────────────────────────────────────────
+#  DJ Seth — CMS configuratie
+#  Inloggen met e-mail loopt via DecapBridge (gratis).
+#  Vul hieronder de 2 regels in die je van DecapBridge krijgt:
+#    - repo            (jouw-github/djseth-site)
+#    - identity_url    (https://auth.decapbridge.com/sites/<jouw-site-id>)
+# ─────────────────────────────────────────────────────────────
+backend:
+  name: git-gateway
+  repo: JOUW-GITHUB-NAAM/djseth-site        # << invullen
+  branch: main
+  identity_url: https://auth.decapbridge.com/sites/JOUW-SITE-ID   # << invullen (van DecapBridge)
+  gateway_url: https://gateway.decapbridge.com
+
+# Waar geüploade foto's terechtkomen
+media_folder: "content/uploads"
+public_folder: "/content/uploads"
+
+# Nette Nederlandse teksten in de interface
+locale: "nl"
+
+collections:
+  - name: "site"
+    label: "Website"
+    description: "Pas hier de teksten, prijzen, foto's en filmpjes aan."
+    files:
+      - name: "algemeen"
+        label: "Teksten, tarieven & media"
+        file: "content/site.json"
+        format: "json"
+        fields:
+          - { label: "DJ-naam", name: "djName", widget: "string" }
+          - { label: "Hero — regel 1", name: "heroLine1", widget: "string" }
+          - { label: "Hero — regel 2", name: "heroLine2", widget: "string" }
+          - { label: "Hero — ondertitel", name: "heroSub", widget: "text" }
+          - { label: "Regio", name: "region", widget: "string" }
+          - { label: "Over — titel", name: "aboutTitle", widget: "string" }
+          - { label: "Over — alinea 1", name: "about1", widget: "text" }
+          - { label: "Over — alinea 2", name: "about2", widget: "text" }
+          - { label: "WhatsApp-nummer (met landcode, bv. 31612345678)", name: "whatsapp", widget: "string" }
+          - { label: "E-mailadres", name: "email", widget: "string" }
+
+          - label: "Tarieven"
+            name: "prices"
+            widget: "list"
+            label_singular: "Pakket"
+            summary: "{{fields.name}} — {{fields.amount}}"
+            fields:
+              - { label: "Naam pakket", name: "name", widget: "string" }
+              - { label: "Prijs", name: "amount", widget: "string" }
+              - { label: "Eenheid (bv. / 4 uur)", name: "unit", widget: "string", required: false }
+              - { label: "Uitlichten?", name: "featured", widget: "boolean", default: false }
+              - { label: "Kenmerken (één per regel)", name: "features", widget: "text" }
+
+          - label: "Foto's & filmpjes"
+            name: "gallery"
+            widget: "list"
+            label_singular: "Item"
+            summary: "{{fields.caption}}"
+            fields:
+              - { label: "Type", name: "type", widget: "select", options: ["foto", "video"], default: "foto" }
+              - { label: "Foto (bij type 'foto')", name: "image", widget: "image", required: false }
+              - { label: "Video-link YouTube (bij type 'video')", name: "videoUrl", widget: "string", required: false }
+              - { label: "Bijschrift", name: "caption", widget: "string", required: false }
