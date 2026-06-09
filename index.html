@@ -185,7 +185,7 @@
         <div class="field"><label for="datum">Datum van het feest</label><input id="datum" type="date"></div>
         <div class="field"><label for="soort">Wat voor feest?</label><input id="soort" placeholder="Verjaardag, schoolfeest, tuinfeest…"></div>
         <div class="field"><label for="bericht">Vertel kort wat je zoekt</label><textarea id="bericht" rows="3" placeholder="Aantal gasten, locatie, hoelang…"></textarea></div>
-        <button class="btn" type="button" onclick="verstuur()">Verstuur aanvraag ✉</button>
+        <button class="btn" type="button" onclick="verstuur()">Verstuur via WhatsApp</button>
       </div>
       <div class="qr-box">
         <p style="color:var(--muted);font-size:14px">Stond je bij mijn draaitafel? Dan kwam je hier via de QR-code 👇</p>
@@ -206,6 +206,7 @@
   // Standaardgegevens (worden gebruikt als content/site.json nog niet geladen is)
   var SITE = null;
   var currentEmail = "info@djseth.nl";
+  var currentWhatsapp = "31600000000";
 
   function ytEmbed(url){
     // maakt van een YouTube-link een embed-URL; anders null
@@ -252,7 +253,7 @@
     set('regionText', d.region); set('heroLine1', d.heroLine1); set('heroLine2', d.heroLine2);
     set('heroSub', d.heroSub); set('aboutTitle', d.aboutTitle); set('about1', d.about1); set('about2', d.about2);
     if(d.djName) document.getElementById('footerText').textContent = d.djName + " · Feest-DJ uit de regio Sittard · hobbymatig & met plezier 🎧";
-    if(d.whatsapp) document.getElementById('waLink').href = "https://wa.me/" + d.whatsapp.replace(/\D/g,'');
+    if(d.whatsapp){ currentWhatsapp = d.whatsapp.replace(/\D/g,''); document.getElementById('waLink').href = "https://wa.me/" + currentWhatsapp; }
     if(d.email){ currentEmail = d.email; document.getElementById('mailLink').href = "mailto:" + d.email; }
     if(d.prices && d.prices.length) renderPrices(d.prices);
     if(d.gallery) renderGallery(d.gallery);
@@ -261,8 +262,8 @@
   function verstuur(){
     var n=document.getElementById('naam').value||'', dt=document.getElementById('datum').value||'',
         s=document.getElementById('soort').value||'', b=document.getElementById('bericht').value||'';
-    var body='Naam: '+n+'%0D%0ADatum: '+dt+'%0D%0ASoort feest: '+s+'%0D%0ABericht: '+b;
-    window.location.href='mailto:'+currentEmail+'?subject=Aanvraag DJ feest&body='+body;
+    var msg = 'Aanvraag DJ feest\nNaam: '+n+'\nDatum: '+dt+'\nSoort feest: '+s+'\nBericht: '+b;
+    window.location.href = 'https://wa.me/'+currentWhatsapp+'?text='+encodeURIComponent(msg);
   }
 
   // Probeer de door het CMS beheerde content te laden. Lukt dat niet (bv. lokaal
